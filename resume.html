@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>个人简历</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f4f0;
+    --surface: #ffffff;
+    --text: #1a1a18;
+    --muted: #6b6b65;
+    --accent: #1a4a3a;
+    --accent-light: #e8f0ed;
+    --border: #e0dfd8;
+    --tag-bg: #eeecea;
+    --mono: 'DM Mono', monospace;
+    --sans-en: 'Noto Sans', sans-serif;
+    --sans-zh: 'Noto Sans SC', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans-zh);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.lang-en {
+    font-family: var(--sans-en);
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 40px;
+    background: rgba(245,244,240,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .lang-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    transition: all 0.2s;
+  }
+  .lang-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .lang-btn:hover:not(.active) {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .print-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    padding: 5px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #fff;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .print-btn:hover { opacity: 0.85; }
+  .print-btn svg { width: 13px; height: 13px; }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 100px 40px 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: end;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--text);
+    margin-bottom: 40px;
+  }
+
+  .header-name {
+    font-size: 42px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .header-title {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-top: 8px;
+  }
+
+  .header-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .contact-item {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+  }
+  .contact-item:hover { color: var(--accent); }
+  .contact-item span { font-size: 14px; }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 36px;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── ABOUT ── */
+  .about-text {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 640px;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; }
+
+  .exp-meta {
+    padding-top: 3px;
+  }
+
+  .exp-period {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .exp-company {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  .exp-role {
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .exp-desc {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    margin-top: 8px;
+  }
+  .exp-bullets li {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.75;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+  .exp-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--border);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .skill-group {}
+
+  .skill-group-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--tag-bg);
+    color: var(--text);
+    padding: 3px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .edu-item:last-child { border-bottom: none; }
+
+  .edu-degree { font-weight: 500; font-size: 15px; }
+  .edu-school { font-size: 13px; color: var(--accent); margin-top: 2px; }
+  .edu-detail { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  /* ── PROJECTS ── */
+  .proj-item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .proj-item:last-child { border-bottom: none; }
+
+  .proj-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .proj-name {
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  .proj-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .proj-link:hover { text-decoration: underline; }
+
+  .proj-desc {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 8px;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    @page {
+      size: A4;
+      margin: 18mm 18mm 18mm 18mm;
+    }
+
+    body {
+      background: #fff;
+      font-size: 13px;
+    }
+
+    .nav { display: none !important; }
+
+    .page {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    .header {
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .header-name { font-size: 28px; }
+
+    .section { margin-bottom: 22px; }
+
+    .exp-item, .edu-item, .proj-item {
+      page-break-inside: avoid;
+    }
+
+    .tag {
+      background: #f0f0ee;
+      border-color: #ddd;
+    }
+  }
+
+  /* ── ANIM ── */
+  .fade-section {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.12s; }
+  .section:nth-child(3) { animation-delay: 0.19s; }
+  .section:nth-child(4) { animation-delay: 0.26s; }
+  .section:nth-child(5) { animation-delay: 0.33s; }
+</style>
+</head>
+<body class="lang-zh">
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <button class="lang-btn active" id="btn-zh" onclick="setLang('zh')">中文</button>
+  <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v10M5 12l7 7 7-7"/>
+    </svg>
+    <span id="dl-label">下载 PDF</span>
+  </button>
+</nav>
+
+<!-- CONTENT -->
+<div class="page" id="resume"></div>
+
+<script>
+// ═══════════════════════════════════════════════
+//  ★  在这里修改你的简历内容
+// ═══════════════════════════════════════════════
+const DATA = {
+  zh: {
+    name: "张明远",
+    title: "高级全栈工程师",
+    contacts: [
+      { icon: "✉", label: "hello@zhangmingyuan.dev", href: "mailto:hello@zhangmingyuan.dev" },
+      { icon: "⌂", label: "github.com/zhangmy", href: "https://github.com" },
+      { icon: "◎", label: "新加坡 · 开放全球机会", href: null },
+    ],
+    about: "拥有 6 年全栈开发经验，专注于构建高性能、可扩展的 Web 应用。热衷于系统架构设计与开源贡献，曾主导多个千万级日活产品的技术演进。对 AI 工程化与开发者体验有浓厚兴趣。",
+    experience: [
+      {
+        period: "2022.03 — 至今",
+        company: "字节跳动",
+        role: "高级工程师",
+        bullets: [
+          "主导短视频推荐系统前端重构，首屏加载速度提升 40%，日活用户 3000 万+",
+          "设计并落地微前端架构，支撑 12 个业务团队并行开发",
+          "推动团队 TypeScript 迁移，类型覆盖率从 20% 提升至 95%",
+        ]
+      },
+      {
+        period: "2019.07 — 2022.02",
+        company: "美团",
+        role: "前端工程师",
+        bullets: [
+          "参与外卖 C 端 App 的 React Native 改造，性能评分提升 35%",
+          "独立开发可视化搭建平台，供运营人员零代码配置营销页",
+          "建立前端监控告警体系，线上错误发现时间从天级降至分钟级",
+        ]
+      },
+      {
+        period: "2018.06 — 2019.06",
+        company: "创业公司 · Intern",
+        role: "前端实习生",
+        bullets: [
+          "独立完成 SaaS 管理后台的 Vue 2 → Vue 3 升级",
+        ]
+      },
+    ],
+    skills: [
+      { name: "前端", tags: ["React", "Next.js", "Vue 3", "TypeScript", "Tailwind"] },
+      { name: "后端", tags: ["Node.js", "Go", "PostgreSQL", "Redis", "gRPC"] },
+      { name: "基础设施", tags: ["Docker", "Kubernetes", "AWS", "CI/CD"] },
+      { name: "工具链", tags: ["Webpack", "Vite", "Turborepo", "pnpm"] },
+    ],
+    education: [
+      {
+        period: "2014 — 2018",
+        degree: "计算机科学与技术 · 学士",
+        school: "上海交通大学",
+        detail: "GPA 3.8 / 4.0 · 优秀毕业论文"
+      }
+    ],
+    projects: [
+      {
+        name: "devlog",
+        link: "github.com/zhangmy/devlog",
+        href: "https://github.com",
+        desc: "开源的开发者日志工具，支持 Markdown、代码块高亮与一键发布到多平台。GitHub Star 1.2k。"
+      },
+      {
+        name: "json-diff-cli",
+        link: "npm: json-diff-cli",
+        href: "https://npmjs.com",
+        desc: "命令行 JSON 差异对比工具，支持大文件流式处理，周下载量 8000+。"
+      },
+    ],
+    labels: {
+      about: "关于我",
+      experience: "工作经历",
+      skills: "技术栈",
+      education: "教育背景",
+      projects: "开源项目",
+      download: "下载 PDF",
+    }
+  },
+
+  en: {
+    name: "Mingyuan Zhang",
+    title: "Senior Full-Stack Engineer",
+    contacts: [
+      { icon: "✉", label: "hello@zhangmingyuan.dev", href: "mailto:hello@zhangmingyuan.dev" },
+      { icon: "⌂", label: "github.com/zhangmy", href: "https://github.com" },
+      { icon: "◎", label: "Singapore · Open to Global Opportunities", href: null },
+    ],
+    about: "Full-stack engineer with 6+ years of experience building high-performance, scalable web applications. Passionate about system architecture and open-source. Led technical evolution of products with 30M+ daily active users. Strong interest in AI engineering and developer experience.",
+    experience: [
+      {
+        period: "Mar 2022 — Present",
+        company: "ByteDance",
+        role: "Senior Engineer",
+        bullets: [
+          "Led frontend reconstruction of short-video recommendation system, achieving 40% improvement in first-screen load time, serving 30M+ daily users",
+          "Designed and implemented micro-frontend architecture supporting 12 parallel business teams",
+          "Championed TypeScript migration, raising type coverage from 20% to 95%",
+        ]
+      },
+      {
+        period: "Jul 2019 — Feb 2022",
+        company: "Meituan",
+        role: "Frontend Engineer",
+        bullets: [
+          "Contributed to React Native migration of the food delivery consumer app, improving performance score by 35%",
+          "Built a no-code visual page builder for marketing campaigns used by non-technical operators",
+          "Established frontend monitoring and alerting, reducing error detection time from days to minutes",
+        ]
+      },
+      {
+        period: "Jun 2018 — Jun 2019",
+        company: "Startup · Intern",
+        role: "Frontend Intern",
+        bullets: [
+          "Independently completed Vue 2 → Vue 3 migration for a SaaS admin dashboard",
+        ]
+      },
+    ],
+    skills: [
+      { name: "Frontend", tags: ["React", "Next.js", "Vue 3", "TypeScript", "Tailwind"] },
+      { name: "Backend", tags: ["Node.js", "Go", "PostgreSQL", "Redis", "gRPC"] },
+      { name: "Infrastructure", tags: ["Docker", "Kubernetes", "AWS", "CI/CD"] },
+      { name: "Toolchain", tags: ["Webpack", "Vite", "Turborepo", "pnpm"] },
+    ],
+    education: [
+      {
+        period: "2014 — 2018",
+        degree: "B.Eng. Computer Science",
+        school: "Shanghai Jiao Tong University",
+        detail: "GPA 3.8 / 4.0 · Outstanding Thesis Award"
+      }
+    ],
+    projects: [
+      {
+        name: "devlog",
+        link: "github.com/zhangmy/devlog",
+        href: "https://github.com",
+        desc: "Open-source developer logging tool with Markdown support, syntax highlighting, and one-click multi-platform publishing. 1.2k GitHub Stars."
+      },
+      {
+        name: "json-diff-cli",
+        link: "npm: json-diff-cli",
+        href: "https://npmjs.com",
+        desc: "CLI tool for JSON diffing with streaming support for large files. 8,000+ weekly downloads on npm."
+      },
+    ],
+    labels: {
+      about: "About",
+      experience: "Experience",
+      skills: "Skills",
+      education: "Education",
+      projects: "Projects",
+      download: "Download PDF",
+    }
+  }
+};
+// ═══════════════════════════════════════════════
+
+let currentLang = 'zh';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.body.className = 'lang-' + lang;
+  document.getElementById('btn-zh').className = 'lang-btn' + (lang === 'zh' ? ' active' : '');
+  document.getElementById('btn-en').className = 'lang-btn' + (lang === 'en' ? ' active' : '');
+  document.getElementById('dl-label').textContent = DATA[lang].labels.download;
+  render(lang);
+}
+
+function render(lang) {
+  const d = DATA[lang];
+  const r = document.getElementById('resume');
+
+  const contacts = d.contacts.map(c =>
+    c.href
+      ? `<a class="contact-item" href="${c.href}"><span>${c.icon}</span>${c.label}</a>`
+      : `<span class="contact-item"><span>${c.icon}</span>${c.label}</span>`
+  ).join('');
+
+  const experience = d.experience.map(e => `
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">${e.period}</div>
+        <div class="exp-company">${e.company}</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-role">${e.role}</div>
+        <ul class="exp-bullets">
+          ${e.bullets.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+      </div>
+    </div>
+  `).join('');
+
+  const skills = d.skills.map(s => `
+    <div class="skill-group">
+      <div class="skill-group-name">${s.name}</div>
+      <div class="skill-tags">${s.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+  `).join('');
+
+  const education = d.education.map(e => `
+    <div class="edu-item">
+      <div class="exp-meta">
+        <div class="exp-period">${e.period}</div>
+      </div>
+      <div>
+        <div class="edu-degree">${e.degree}</div>
+        <div class="edu-school">${e.school}</div>
+        <div class="edu-detail">${e.detail}</div>
+      </div>
+    </div>
+  `).join('');
+
+  const projects = d.projects.map(p => `
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">${p.name}</span>
+        <a class="proj-link" href="${p.href}" target="_blank">↗ ${p.link}</a>
+      </div>
+      <div class="proj-desc">${p.desc}</div>
+      <div class="skill-tags">${(p.tags||[]).map(t => `<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+  `).join('');
+
+  r.innerHTML = `
+    <div class="header fade-section">
+      <div>
+        <div class="header-name">${d.name}</div>
+        <div class="header-title">${d.title}</div>
+      </div>
+      <div class="header-contacts">${contacts}</div>
+    </div>
+
+    <div class="section fade-section">
+      <div class="section-label">${d.labels.about}</div>
+      <div class="about-text">${d.about}</div>
+    </div>
+
+    <div class="section fade-section">
+      <div class="section-label">${d.labels.experience}</div>
+      ${experience}
+    </div>
+
+    <div class="section fade-section">
+      <div class="section-label">${d.labels.skills}</div>
+      <div class="skills-grid">${skills}</div>
+    </div>
+
+    <div class="section fade-section">
+      <div class="section-label">${d.labels.education}</div>
+      ${education}
+    </div>
+
+    <div class="section fade-section">
+      <div class="section-label">${d.labels.projects}</div>
+      ${projects}
+    </div>
+  `;
+}
+
+render('zh');
+</script>
+</body>
+</html>
