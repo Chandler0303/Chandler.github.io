@@ -281,6 +281,18 @@
   .edu-detail { font-size: 13px; color: var(--muted); margin-top: 2px; }
 
   /* ── PROJECTS ── */
+  .proj-category {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-top: 20px;
+    padding-top: 4px;
+  }
+  .proj-category:first-child {
+    margin-top: 0;
+  }
+
   .proj-item {
     padding: 18px 0;
     border-bottom: 1px solid var(--border);
@@ -394,70 +406,108 @@
 // ═══════════════════════════════════════════════
 const DATA = {
   zh: {
-    name: "张明远",
-    title: "高级全栈工程师",
+    name: "侯玲风",
+    title: "前端开发工程师 · 6年+经验 · 月内到岗",
     contacts: [
-      { icon: "✉", label: "hello@zhangmingyuan.dev", href: "mailto:hello@zhangmingyuan.dev" },
-      { icon: "⌂", label: "github.com/zhangmy", href: "https://github.com" },
-      { icon: "◎", label: "新加坡 · 开放全球机会", href: null },
+      { icon: "◎", label: "27岁 · 本科在职", href: null },
+      { icon: "⌂", label: "视觉传达设计背景", href: null },
+      { icon: "￥", label: "期望 15-20K · 行业不限", href: null },
     ],
-    about: "拥有 6 年全栈开发经验，专注于构建高性能、可扩展的 Web 应用。热衷于系统架构设计与开源贡献，曾主导多个千万级日活产品的技术演进。对 AI 工程化与开发者体验有浓厚兴趣。",
+    about: "拥有 6 年+前端开发经验，精通 Vue 技术栈，熟悉 React、Uniapp 与微信小程序开发。理解前端工程化、组件化、国际化与项目架构优化，能独立搭建后台管理系统、数据大屏、地图可视化和跨端应用。具备 Node.js、Java + Freemarker、数据库与 Linux 运维基础，兼具视觉传达设计背景，关注代码规范、交互体验与团队协作效率。",
     experience: [
       {
         period: "2022.03 — 至今",
-        company: "字节跳动",
-        role: "高级工程师",
+        company: "深圳云游四海科技有限公司 · 研发部",
+        role: "前端开发工程师",
         bullets: [
-          "主导短视频推荐系统前端重构，首屏加载速度提升 40%，日活用户 3000 万+",
-          "设计并落地微前端架构，支撑 12 个业务团队并行开发",
-          "推动团队 TypeScript 迁移，类型覆盖率从 20% 提升至 95%",
+          "主导公司后台管理系统模板抽取，基于 Vue2/3 沉淀可复用 RBAC 权限体系，新项目交付效率提升约 40%",
+          "建设企业级组件库，覆盖下拉分页选择器、权限指令、树形选择器、Canvas 车位绘制等高频业务组件",
+          "搭建前端规范体系，包括代码规范、自测用例与提交约定，降低后续维护成本",
+          "负责停车业务后台、数据大屏、小程序、地图可视化等核心功能研发与持续迭代",
         ]
       },
       {
-        period: "2019.07 — 2022.02",
-        company: "美团",
+        period: "2020.06 — 2021.11",
+        company: "湖南云商世纪网络科技有限公司",
         role: "前端工程师",
         bullets: [
-          "参与外卖 C 端 App 的 React Native 改造，性能评分提升 35%",
-          "独立开发可视化搭建平台，供运营人员零代码配置营销页",
-          "建立前端监控告警体系，线上错误发现时间从天级降至分钟级",
-        ]
-      },
-      {
-        period: "2018.06 — 2019.06",
-        company: "创业公司 · Intern",
-        role: "前端实习生",
-        bullets: [
-          "独立完成 SaaS 管理后台的 Vue 2 → Vue 3 升级",
+          "主导 SaaS 商家端小程序开发，基于微信三方托管能力实现商户快速接入，支持多商户模式",
+          "使用 Vue2 + Electron 开发分拣系统，集成电子秤与热敏打印机，提升分拣效率",
+          "参与生鲜配送、拼团 SaaS 系统开发，覆盖 PC 端、移动端与 Uniapp 跨端应用",
         ]
       },
     ],
     skills: [
-      { name: "前端", tags: ["React", "Next.js", "Vue 3", "TypeScript", "Tailwind"] },
-      { name: "后端", tags: ["Node.js", "Go", "PostgreSQL", "Redis", "gRPC"] },
-      { name: "基础设施", tags: ["Docker", "Kubernetes", "AWS", "CI/CD"] },
-      { name: "工具链", tags: ["Webpack", "Vite", "Turborepo", "pnpm"] },
+      { name: "前端框架", tags: ["Vue2/3", "Element UI/Plus", "React", "Uniapp", "微信小程序"] },
+      { name: "工程化", tags: ["Webpack", "Vite", "Git", "代码规范", "组件化"] },
+      { name: "可视化", tags: ["ECharts", "Canvas", "高德地图", "海量点绘制", "数据大屏"] },
+      { name: "协作与部署", tags: ["Node.js", "Java + Freemarker", "Nginx", "vue-i18n", "Linux"] },
+      { name: "AI工具", tags: ["Cursor", "Claude Code"] },
     ],
     education: [
       {
-        period: "2014 — 2018",
-        degree: "计算机科学与技术 · 学士",
-        school: "上海交通大学",
-        detail: "GPA 3.8 / 4.0 · 优秀毕业论文"
+        period: "2022 — 2024",
+        degree: "视觉传达设计 · 本科 · 非全日制",
+        school: "华南农业大学",
+        detail: "双一流院校 · 视觉设计背景，兼顾代码规范与交互体验"
       }
     ],
     projects: [
       {
-        name: "devlog",
-        link: "github.com/zhangmy/devlog",
-        href: "https://github.com",
-        desc: "开源的开发者日志工具，支持 Markdown、代码块高亮与一键发布到多平台。GitHub Star 1.2k。"
+        category: "核心复杂前端项目",
+        name: "IIV停车巡检平台",
+        link: "2023.03 — 2025.07",
+        href: "#",
+        desc: "负责后台管理初始搭建、动态菜单鉴权与核心模块优化。抽取下拉树、分页下拉多选框、多标签缓存页面等组件，接入高德地图海量点绘制，使用 Canvas 实现车位图片、车位框与车辆框一比一绘制，并补充国际化能力。",
+        tags: ["Vue2", "高德地图", "Canvas", "vue-i18n", "SSE"]
       },
       {
-        name: "json-diff-cli",
-        link: "npm: json-diff-cli",
-        href: "https://npmjs.com",
-        desc: "命令行 JSON 差异对比工具，支持大文件流式处理，周下载量 8000+。"
+        category: "核心复杂前端项目",
+        name: "DMP设备平台",
+        link: "2023.03 — 2025.07",
+        href: "#",
+        desc: "完整负责系统从 0 到 1 搭建，配置 Webpack 构建、模块化路由与状态管理结构。基于 Vue2 模板库快速开发并统一样式，使用 vue-i18n 实现中英文国际化，封装 Axios 请求与统一错误处理。",
+        tags: ["Vue2", "Webpack", "Axios", "vue-i18n"]
+      },
+      {
+        category: "数据可视化与地图项目",
+        name: "公交系统大数据平台",
+        link: "2022.03 — 2025.07",
+        href: "#",
+        desc: "主导平台架构设计，使用 Vue + ECharts 构建大屏数据展示系统，实现 PC 大屏与移动端自适应展示。集成高德地图完成公交线路动态轨迹渲染、站点可视化与地图图层交互。",
+        tags: ["Vue", "ECharts", "高德地图", "响应式"]
+      },
+      {
+        category: "业务平台与跨端应用",
+        name: "IPS停车平台管理",
+        link: "2024.03 — 2025.07",
+        href: "#",
+        desc: "使用 Freemarker + Java 参与智慧停车管理平台开发，覆盖用户管理、车位状态实时查询、充值订单等模块。基于 Uniapp 开发微信小程序，实现登录、充值、车位查询、缴费记录与附近车场展示。",
+        tags: ["Freemarker", "Java", "Uniapp", "微信小程序"]
+      },
+      {
+        category: "业务平台与跨端应用",
+        name: "ICP充电平台管理",
+        link: "2022.12 — 2025.07",
+        href: "#",
+        desc: "参与后台管理与充电小程序开发，负责设备状态监控、订单管理、充电月卡等模块，配合团队优化用户充电流程并持续迭代系统性能。",
+        tags: ["Vue2", "Uniapp", "后台管理"]
+      },
+      {
+        category: "业务平台与跨端应用",
+        name: "云游四海官网",
+        link: "2024.06 — 2025.07",
+        href: "#",
+        desc: "使用 HTML5、CSS3、原生 JavaScript 与 Bootstrap 4 完成官网页面开发，实现 PC 与移动端响应式布局、按终端动态加载图片资源，并通过图片懒加载优化首屏渲染时间。",
+        tags: ["HTML5", "CSS3", "Bootstrap", "Lazy Load"]
+      },
+      {
+        category: "早期SaaS与设备对接经验",
+        name: "蔬果云SaaS项目",
+        link: "2020.06 — 2021.11",
+        href: "#",
+        desc: "参与生鲜配送系统开发，主导 PC 端系统架构搭建与功能开发，采用 Vue + Electron 实现跨平台应用支持；对接串口电子秤并迭代小程序智能语音与聊天功能。",
+        tags: ["Vue", "Electron", "小程序", "串口设备"]
       },
     ],
     labels: {
@@ -465,76 +515,114 @@ const DATA = {
       experience: "工作经历",
       skills: "技术栈",
       education: "教育背景",
-      projects: "开源项目",
+      projects: "项目经历",
       download: "下载 PDF",
     }
   },
 
   en: {
-    name: "Mingyuan Zhang",
-    title: "Senior Full-Stack Engineer",
+    name: "Lingfeng Hou",
+    title: "Frontend Engineer · 6+ Years Experience · Available Within One Month",
     contacts: [
-      { icon: "✉", label: "hello@zhangmingyuan.dev", href: "mailto:hello@zhangmingyuan.dev" },
-      { icon: "⌂", label: "github.com/zhangmy", href: "https://github.com" },
-      { icon: "◎", label: "Singapore · Open to Global Opportunities", href: null },
+      { icon: "◎", label: "27 years old · Undergraduate", href: null },
+      { icon: "⌂", label: "Visual Communication Design Background", href: null },
+      { icon: "￥", label: "Expected Salary 15-20K · Open Industry", href: null },
     ],
-    about: "Full-stack engineer with 6+ years of experience building high-performance, scalable web applications. Passionate about system architecture and open-source. Led technical evolution of products with 30M+ daily active users. Strong interest in AI engineering and developer experience.",
+    about: "Frontend engineer with 6+ years of experience, proficient in the Vue ecosystem and familiar with React, Uniapp, and WeChat Mini Program development. Experienced in frontend engineering, component design, internationalization, data visualization, map visualization, and cross-platform applications. Also has basic full-stack collaboration capabilities with Node.js, Java + Freemarker, databases, Linux operations, and Nginx deployment.",
     experience: [
       {
         period: "Mar 2022 — Present",
-        company: "ByteDance",
-        role: "Senior Engineer",
-        bullets: [
-          "Led frontend reconstruction of short-video recommendation system, achieving 40% improvement in first-screen load time, serving 30M+ daily users",
-          "Designed and implemented micro-frontend architecture supporting 12 parallel business teams",
-          "Championed TypeScript migration, raising type coverage from 20% to 95%",
-        ]
-      },
-      {
-        period: "Jul 2019 — Feb 2022",
-        company: "Meituan",
+        company: "Shenzhen Yunyou Sihai Technology Co., Ltd. · R&D Department",
         role: "Frontend Engineer",
         bullets: [
-          "Contributed to React Native migration of the food delivery consumer app, improving performance score by 35%",
-          "Built a no-code visual page builder for marketing campaigns used by non-technical operators",
-          "Established frontend monitoring and alerting, reducing error detection time from days to minutes",
+          "Led extraction of reusable Vue2/3 admin templates and RBAC permission system, improving new project delivery efficiency by about 40%",
+          "Built enterprise component assets including paginated selectors, permission directives, tree selectors, and Canvas parking-space drawing components",
+          "Established frontend standards for code style, self-testing cases, and commit conventions to reduce maintenance cost",
+          "Developed and iterated core features for parking business systems, data dashboards, mini programs, and map visualization projects",
         ]
       },
       {
-        period: "Jun 2018 — Jun 2019",
-        company: "Startup · Intern",
-        role: "Frontend Intern",
+        period: "Jun 2020 — Nov 2021",
+        company: "Hunan Yunshang Century Network Technology Co., Ltd.",
+        role: "Frontend Engineer",
         bullets: [
-          "Independently completed Vue 2 → Vue 3 migration for a SaaS admin dashboard",
+          "Led SaaS merchant Mini Program development based on WeChat third-party hosting capabilities, supporting rapid merchant onboarding and multi-merchant mode",
+          "Developed a Vue2 + Electron sorting system integrated with electronic scales and thermal printers",
+          "Participated in fresh food delivery and group-buying SaaS systems across PC, mobile, and Uniapp applications",
         ]
       },
     ],
     skills: [
-      { name: "Frontend", tags: ["React", "Next.js", "Vue 3", "TypeScript", "Tailwind"] },
-      { name: "Backend", tags: ["Node.js", "Go", "PostgreSQL", "Redis", "gRPC"] },
-      { name: "Infrastructure", tags: ["Docker", "Kubernetes", "AWS", "CI/CD"] },
-      { name: "Toolchain", tags: ["Webpack", "Vite", "Turborepo", "pnpm"] },
+      { name: "Frontend", tags: ["Vue2/3", "Element UI/Plus", "React", "Uniapp", "WeChat Mini Program"] },
+      { name: "Engineering", tags: ["Webpack", "Vite", "Git", "Code Standards", "Components"] },
+      { name: "Visualization", tags: ["ECharts", "Canvas", "Amap", "Mass Markers", "Dashboards"] },
+      { name: "Collaboration", tags: ["Node.js", "Java + Freemarker", "Nginx", "vue-i18n", "Linux"] },
+      { name: "AI Tools", tags: ["Cursor", "Claude Code"] },
     ],
     education: [
       {
-        period: "2014 — 2018",
-        degree: "B.Eng. Computer Science",
-        school: "Shanghai Jiao Tong University",
-        detail: "GPA 3.8 / 4.0 · Outstanding Thesis Award"
+        period: "2022 — 2024",
+        degree: "Undergraduate · Visual Communication Design · Part-time",
+        school: "South China Agricultural University",
+        detail: "Double First-Class university · Design background with focus on interaction quality"
       }
     ],
     projects: [
       {
-        name: "devlog",
-        link: "github.com/zhangmy/devlog",
-        href: "https://github.com",
-        desc: "Open-source developer logging tool with Markdown support, syntax highlighting, and one-click multi-platform publishing. 1.2k GitHub Stars."
+        category: "Core Complex Frontend Projects",
+        name: "IIV Parking Inspection Platform",
+        link: "Mar 2023 — Jul 2025",
+        href: "#",
+        desc: "Built the initial admin system, dynamic menu authorization, and core module optimizations. Delivered reusable tree selectors, paginated multi-select components, multi-tab page caching, Amap mass marker rendering, Canvas-based parking space drawing, and internationalization support.",
+        tags: ["Vue2", "Amap", "Canvas", "vue-i18n", "SSE"]
       },
       {
-        name: "json-diff-cli",
-        link: "npm: json-diff-cli",
-        href: "https://npmjs.com",
-        desc: "CLI tool for JSON diffing with streaming support for large files. 8,000+ weekly downloads on npm."
+        category: "Core Complex Frontend Projects",
+        name: "DMP Device Platform",
+        link: "Mar 2023 — Jul 2025",
+        href: "#",
+        desc: "Owned system setup from scratch, including Webpack build configuration, modular routing, and state management. Used Vue2 templates for fast delivery, implemented Chinese/English internationalization with vue-i18n, and wrapped Axios requests with unified error handling.",
+        tags: ["Vue2", "Webpack", "Axios", "vue-i18n"]
+      },
+      {
+        category: "Data Visualization & Map Projects",
+        name: "Bus System Big Data Platform",
+        link: "Mar 2022 — Jul 2025",
+        href: "#",
+        desc: "Led architecture design for a Vue + ECharts data dashboard supporting PC large screens and mobile adaptive layouts. Integrated Amap for dynamic route rendering, station visualization, and map layer interactions.",
+        tags: ["Vue", "ECharts", "Amap", "Responsive"]
+      },
+      {
+        category: "Business Platforms & Cross-Platform Apps",
+        name: "IPS Parking Management Platform",
+        link: "Mar 2024 — Jul 2025",
+        href: "#",
+        desc: "Developed smart parking admin modules with Freemarker + Java, including user management, parking-space status queries, and recharge orders. Built a Uniapp WeChat Mini Program for login, recharge, parking-space query, payment records, and nearby parking lot display.",
+        tags: ["Freemarker", "Java", "Uniapp", "Mini Program"]
+      },
+      {
+        category: "Business Platforms & Cross-Platform Apps",
+        name: "ICP Charging Management Platform",
+        link: "Dec 2022 — Jul 2025",
+        href: "#",
+        desc: "Developed admin features and charging Mini Program modules including device status monitoring, order management, and monthly charging card workflows, while iterating performance and user experience.",
+        tags: ["Vue2", "Uniapp", "Admin System"]
+      },
+      {
+        category: "Business Platforms & Cross-Platform Apps",
+        name: "Yunyou Sihai Official Website",
+        link: "Jun 2024 — Jul 2025",
+        href: "#",
+        desc: "Developed official website pages with HTML5, CSS3, vanilla JavaScript, and Bootstrap 4. Implemented responsive layouts, device-based image loading, and lazy loading to improve first-screen rendering performance.",
+        tags: ["HTML5", "CSS3", "Bootstrap", "Lazy Load"]
+      },
+      {
+        category: "Early SaaS & Device Integration Experience",
+        name: "Shuguoyun SaaS Project",
+        link: "Jun 2020 — Nov 2021",
+        href: "#",
+        desc: "Participated in fresh food delivery system development, led PC architecture and feature delivery with Vue + Electron, integrated serial-port electronic scales, and iterated Mini Program voice and chat features.",
+        tags: ["Vue", "Electron", "Mini Program", "Serial Device"]
       },
     ],
     labels: {
@@ -542,7 +630,7 @@ const DATA = {
       experience: "Experience",
       skills: "Skills",
       education: "Education",
-      projects: "Projects",
+      projects: "Project Experience",
       download: "Download PDF",
     }
   }
@@ -606,16 +694,25 @@ function render(lang) {
     </div>
   `).join('');
 
-  const projects = d.projects.map(p => `
-    <div class="proj-item">
-      <div class="proj-header">
-        <span class="proj-name">${p.name}</span>
-        <a class="proj-link" href="${p.href}" target="_blank">↗ ${p.link}</a>
+  let lastProjectCategory = '';
+  const projects = d.projects.map(p => {
+    const category = p.category && p.category !== lastProjectCategory
+      ? `<div class="proj-category">${p.category}</div>`
+      : '';
+    lastProjectCategory = p.category || lastProjectCategory;
+
+    return `
+      ${category}
+      <div class="proj-item">
+        <div class="proj-header">
+          <span class="proj-name">${p.name}</span>
+          <a class="proj-link" href="${p.href}" target="_blank" rel="noopener noreferrer">↗ ${p.link}</a>
+        </div>
+        <div class="proj-desc">${p.desc}</div>
+        <div class="skill-tags">${(p.tags||[]).map(t => `<span class="tag">${t}</span>`).join('')}</div>
       </div>
-      <div class="proj-desc">${p.desc}</div>
-      <div class="skill-tags">${(p.tags||[]).map(t => `<span class="tag">${t}</span>`).join('')}</div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
   r.innerHTML = `
     <div class="header fade-section">
