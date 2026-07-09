@@ -327,6 +327,25 @@
     margin-bottom: 8px;
   }
 
+  .proj-bullets {
+    list-style: none;
+    margin: 6px 0 10px;
+  }
+  .proj-bullets li {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+  .proj-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--border);
+  }
+
   /* ── PRINT ── */
   @media print {
     @page {
@@ -413,17 +432,19 @@ const DATA = {
       { icon: "⌂", label: "视觉传达设计背景", href: null },
       { icon: "￥", label: "期望 15-20K · 行业不限", href: null },
     ],
-    about: "拥有 6 年+前端开发经验，精通 Vue 技术栈，熟悉 React、Uniapp 与微信小程序开发。理解前端工程化、组件化、国际化与项目架构优化，能独立搭建后台管理系统、数据大屏、地图可视化和跨端应用。具备 Node.js、Java + Freemarker、数据库与 Linux 运维基础，兼具视觉传达设计背景，关注代码规范、交互体验与团队协作效率。",
+    about: "拥有 6 年+前端开发经验，以 Vue2/3、React、TypeScript、uni-app 和小程序开发为主线，长期参与智慧停车、数据统计、内部研发工具和官网获客类项目。能独立完成管理后台、微前端子应用、微信/支付宝小程序、数据可视化页面和轻量 API 服务开发，熟悉前端工程化、组件化、国际化、多端适配、Node/NestJS/Express 服务、Go/Gin 接口改造及 PM2/Nginx 部署。近阶段结合 Cursor、Codex、Figma to Code 与 AI Agent 工作流，沉淀项目上下文、任务规范和回归清单，提升复杂业务下的需求拆解、代码定位和交付效率。",
     experience: [
       {
         period: "2022.03 — 至今",
         company: "深圳云游四海科技有限公司 · 研发部",
         role: "前端开发工程师",
         bullets: [
-          "主导公司后台管理系统模板抽取，基于 Vue2/3 沉淀可复用 RBAC 权限体系，新项目交付效率提升约 40%",
-          "建设企业级组件库，覆盖下拉分页选择器、权限指令、树形选择器、Canvas 车位绘制等高频业务组件",
-          "搭建前端规范体系，包括代码规范、自测用例与提交约定，降低后续维护成本",
-          "负责停车业务后台、数据大屏、小程序、地图可视化等核心功能研发与持续迭代",
+          "负责智慧停车相关前端核心项目研发，覆盖车主端小程序、停车后台、统计分析微前端、官网获客系统、数据大屏与地图可视化等业务场景",
+          "推进老系统现代化改造，将 Java + FreeMarker 后台中的统计模块拆分为 Vue3 + TypeScript 子应用，并通过 iframe 微前端方式接入主系统",
+          "建设内部研发效能工具，开发小程序预览与提审平台、微信第三方平台管理工具，封装分支同步、环境注入、构建预览、审核发布、Token 与回调管理等流程",
+          "沉淀前端工程化与组件能力，包括 RBAC 权限、统一请求层、i18n、多端构建、ECharts 图表、Canvas 车位绘制、分页选择器、树形选择器等通用能力",
+          "参与轻量后端与部署工作，使用 Node.js / Express / NestJS / Prisma / Go / Gin 配合完成 API 服务、任务队列、SSE 日志、PM2 部署和云托管适配",
+          "引入 AI 辅助研发工作流，结合 Cursor、Codex、Figma to Code 和 Agent 文档体系，提升需求拆解、影响面分析、页面生成、代码 Review 与回归验证效率",
         ]
       },
       {
@@ -438,11 +459,12 @@ const DATA = {
       },
     ],
     skills: [
-      { name: "前端框架", tags: ["Vue2/3", "Element UI/Plus", "React", "Uniapp", "微信小程序"] },
-      { name: "工程化", tags: ["Webpack", "Vite", "Git", "代码规范", "组件化"] },
-      { name: "可视化", tags: ["ECharts", "Canvas", "高德地图", "海量点绘制", "数据大屏"] },
-      { name: "协作与部署", tags: ["Node.js", "Java + Freemarker", "Nginx", "vue-i18n", "Linux"] },
-      { name: "AI工具", tags: ["Cursor", "Claude Code"] },
+      { name: "前端框架", tags: ["Vue2/3", "React", "TypeScript", "uni-app", "微信/支付宝小程序", "Ant Design"] },
+      { name: "工程化", tags: ["Vite", "Webpack", "pnpm workspace", "iframe 微前端", "组件化", "Vue I18n"] },
+      { name: "可视化与地图", tags: ["ECharts", "Canvas", "高德地图", "数据大屏", "统计报表"] },
+      { name: "后端与服务", tags: ["Node.js", "Express", "NestJS", "Prisma", "Go/Gin", "MySQL/SQLite"] },
+      { name: "部署与小程序工具", tags: ["PM2", "Nginx", "Git CLI", "miniprogram-ci", "minidev", "微信云托管"] },
+      { name: "AI辅助研发", tags: ["Cursor", "Codex", "Figma to Code", "AI Agent", "Trellis"] },
     ],
     education: [
       {
@@ -453,6 +475,23 @@ const DATA = {
       }
     ],
     projects: [
+      {
+        category: "官网与全栈项目",
+        name: "深圳云游四海官网申请体验管理系统",
+        link: "2025.07 — 2026.07.09",
+        href: "#",
+        featured: true,
+        desc: "独立/参与开发企业官网申请体验业务闭环，包含 Vite 多页面官网、React 管理后台和 NestJS API 服务，实现用户在线提交体验申请、管理员登录审核、状态统计、钉钉通知和一键部署，支撑官网线索收集与运营跟进流程。官网侧同步完成 TailwindCSS 架构改造，并结合 AI 辅助工作流从 Figma 设计稿生成页面代码，提高官网页面迭代效率。",
+        bullets: [
+          "负责搭建“官网表单提交 - 后台审核 - 钉钉通知”的完整业务链路，使用 NestJS + Prisma 设计申请记录、管理员账号等数据模型，并提供申请提交、分页查询、状态统计、审核更新等 RESTful API。",
+          "基于 React 18 + Ant Design 开发申请管理后台，实现 JWT 登录鉴权、私有路由、Token 自动注入、401 自动跳转、密码修改等后台基础能力。",
+          "开发申请记录工作台，支持按状态、手机号、姓名、企业名称、地区组合筛选，配合分页表格、状态标签、统计卡片和审核弹窗提升运营处理效率。",
+          "在官网申请页实现表单校验、协议勾选校验、异步提交、按钮防重复提交和成功反馈，保证用户提交体验与后端数据格式一致。",
+          "接入钉钉机器人通知，支持新申请提醒和审核结果提醒，并实现 Webhook Secret 签名、异常日志记录和异步失败隔离，避免通知失败影响主流程。",
+          "配置 Vite 多页面构建能力，支持 PC/WAP 页面统一构建、TailwindCSS 注入、静态资源同步、图片压缩和相对路径部署；编写部署脚本与 PM2 配置，自动完成依赖安装、Prisma 迁移、前端构建、静态资源复制、后端构建和服务启动。"
+        ],
+        tags: ["React 18", "Ant Design 5", "Vite", "NestJS", "Prisma", "SQLite", "JWT", "TailwindCSS", "PM2", "DingTalk Webhook", "Figma"]
+      },
       {
         category: "核心复杂前端项目",
         name: "IIV停车巡检平台",
@@ -479,6 +518,73 @@ const DATA = {
       },
       {
         category: "业务平台与跨端应用",
+        name: "智慧停车车主端小程序",
+        link: "2024.03 — 2026.07.09",
+        href: "#",
+        featured: true,
+        desc: "智慧停车车主端小程序，一套代码支持微信小程序和支付宝小程序，覆盖找车位、扫码入场、路内/路外停车缴费、欠费补缴、停车卡、优惠券、发票、充值、推广员、核销等停车服务全链路，包含 85+ 页面、4 个分包及多端构建发布流程。",
+        bullets: [
+          "负责车主端核心业务迭代，参与路内支付、路外扫码支付、欠费补缴、停车卡、优惠券、推广员充值等模块开发，支撑路内、路外、独立车场、立体车库等多种停车场景。",
+          "参与停车支付链路建设，处理扫码选单、场内支付、出场支付、0 元驶离、历史欠费合并支付、优惠券抵扣、支付二次确认、支付成功回跳等多分支状态。",
+          "维护 pages.json 路由与分包结构，管理主包、首页分包、我的分包、推广员分包、发票/车生活分包及预加载策略；同时维护统一请求层，覆盖登录态、token 异常、业务错误码、生产环境签名加密、文件上传和请求重放。",
+          "处理微信/支付宝双端兼容差异，统一 uni.* API、平台判断、支付渠道、条件编译和 easycom 组件规范；参与图片资源 OBS 迁移与本地缓存组件建设，减少本地静态资源依赖。",
+          "建设面向 AI Agent 的项目上下文体系，沉淀 AGENTS.md、业务地图、页面地图、接口规范、领域文档、版本 PRD 和回归清单，将需求分析、开发、Review、归档拆分为可执行任务规范，提升复杂业务下的需求拆解、影响面分析和代码定位效率。"
+        ],
+        tags: ["uni-app", "Vue2", "JavaScript", "微信/支付宝小程序", "miniprogram-ci", "AI Agent"]
+      },
+      {
+        category: "业务平台与跨端应用",
+        name: "IPS-SMC 停车业务统计微前端子应用",
+        link: "2025.07 — 2026.07.09",
+        href: "#",
+        featured: true,
+        desc: "基于 Vue 3 + TypeScript + Vite 构建停车业务统计子应用，将原 Java + FreeMarker 停车后台中的统计分析模块拆分为独立子应用，并通过同源 iframe 接入老系统。项目采用 pnpm monorepo 管理公共能力包，覆盖经营概览、收入统计、停车运营、营销统计等模块，支持 KPI 卡片、趋势图、统计表格、异步导出、多语言、主题适配和 mock/真实接口切换。",
+        bullets: [
+          "负责停车业务统计子应用核心页面开发，覆盖经营 KPI、区域统计、收入统计、营销统计等模块，完成卡片指标、趋势图、表格查询、排序、分页、导出等完整数据分析链路。",
+          "参与统一 KPI 接口接入，封装 queryCards、queryTrend、queryTable、exportStat 等统计查询 API，支持 mock 数据与真实接口环境切换，提升前后端联调和本地开发效率。",
+          "推进统计页面配置化重构，将区域统计页的指标字段、i18n key、单位、宽度、排序字段、适用场景等抽象为指标定义表，减少新增/修改指标时跨多个文件同步字段的维护成本。",
+          "参与 Core KPI 首页模块化试点，将原本集中在单个大文件中的 6 个统计区块拆分为独立 Block 组件，明确页面状态管理与组件展示职责，降低页面复杂度并提升后续扩展效率。",
+          "维护微前端公共能力包，包括请求封装、语言/主题 Cookie 同步、父子窗口通信、宿主样式令牌等，保障子应用在主系统 iframe 环境和本地开发环境下表现一致。",
+          "基于 ECharts 封装趋势图、饼图等可复用图表能力，并统一处理金额分转元、百分比、时长、同环比等业务格式化逻辑；配合 TypeScript 类型约束、i18n 检查和 Trellis 任务流沉淀开发规范。"
+        ],
+        tags: ["Vue3", "TypeScript", "Vite", "Vue I18n", "Ant Design Vue", "Tailwind CSS", "ECharts", "pnpm workspace", "iframe 微前端"]
+      },
+      {
+        category: "内部研发效能工具",
+        name: "内网小程序预览与提审平台",
+        link: "2025.07 — 2026.07.09",
+        href: "#",
+        featured: true,
+        desc: "基于 Node.js + Express 开发团队内部小程序预览服务，将原本依赖本机命令行、Git 切分支、HBuilderX CLI、微信/支付宝预览工具的流程封装为浏览器可操作平台，支持选择 Git 分支、切换局点环境、配置 AppId 与接口地址，并触发 uni-app 微信/支付宝小程序编译、预览和支付宝提审流程。",
+        bullets: [
+          "设计并实现一键化 Web 操作流程，整合 Git 分支同步、依赖安装、环境注入、uni-app 编译、微信/支付宝预览码生成和支付宝提审，降低测试、产品同事使用本机 CLI 工具的门槛。",
+          "基于 Express + SSE 实现实时日志系统，前端可持续接收构建输出、队列状态、执行结果和预览二维码，解决长耗时构建任务中用户无法感知进度的问题。",
+          "实现单仓库工作区管理机制，通过 git fetch + git reset --hard 保证每次任务基于目标分支最新代码执行，并禁用 push，避免预览机误改远端仓库。",
+          "设计内存任务队列，同一时间仅执行一个构建任务，避免多用户并发触发 HBuilderX / minidev 导致构建目录、二维码产物和日志输出互相污染。",
+          "实现局点环境与接口地址动态注入能力，自动解析 profile.js 中的 appId、baseUrl、webviewUrl，并支持页面回填与运行时覆盖，适配多城市、多租户小程序预览场景。",
+          "支持微信和支付宝双端预览码展示，支付宝从 CLI 输出中提取二维码链接，微信通过本地 PNG 产物提供静态接口访问，并使用 PM2 单实例部署保障队列状态和 SSE 连接模型稳定运行。"
+        ],
+        tags: ["Node.js", "Express", "SSE", "Git CLI", "child_process", "HBuilderX CLI", "minidev", "PM2"]
+      },
+      {
+        category: "内部研发效能工具",
+        name: "微信第三方平台管理工具",
+        link: "2025.07 — 2026.07.09",
+        href: "#",
+        featured: true,
+        desc: "基于微信第三方平台管理模板进行二次开发与定制改造，使用 Go + Gin + GORM + MySQL + React + Vite 扩展微信开放平台第三方代开发管理能力，面向第三方服务商提供授权账号管理、小程序代开发、消息回调转发、模板库管理、审核发布、Token 调试与系统配置等能力。系统采用内外双服务架构，适配微信云托管环境，支持微信回调明文 JSON 与自建服务加密 XML 两种接入方式。",
+        bullets: [
+          "负责在原有模板基础上扩展后端接口与 React 管理后台，补齐授权链接生成、授权账号管理、小程序模板管理、代码提交、审核、发布、回滚、体验版二维码、隐私设置、服务器域名及业务域名配置等代开发流程。",
+          "基于 Gin 设计外部服务与内部服务双 HTTP 服务架构，外部服务提供管理后台、授权页、微信回调及代理能力，内部服务提供 component_access_token、authorizer_access_token、ticket 等敏感能力查询。",
+          "封装微信开放平台 API 调用链路，实现 component_access_token、authorizer_access_token 的获取、缓存、失效刷新与数据库持久化，提升第三方平台调用稳定性。",
+          "实现微信授权事件与消息事件回调处理，兼容微信云托管明文 JSON 与自建服务器加密 XML 模式，完成 ticket 更新、授权/取消授权处理、回调记录落库及消息规则转发。",
+          "使用 GORM 设计授权账号、Token、用户、回调记录、回调转发规则等数据模型，支撑后台分页查询、筛选、更新和批量操作；基于 JWT 与中间件完成登录态校验、请求日志和微信来源校验。",
+          "前端基于 React + TypeScript + Vite + TDesign React 构建管家中心、开发调试、消息转发器、Proxy 配置、Secret 与密码管理等模块，并支持批量代码提交、批量审核、批量发布及成功/失败明细返回。"
+        ],
+        tags: ["Go", "Gin", "GORM", "MySQL", "JWT", "React", "TypeScript", "Vite", "TDesign React", "微信开放平台"]
+      },
+      {
+        category: "业务平台与跨端应用",
         name: "IPS停车平台管理",
         link: "2024.03 — 2025.07",
         href: "#",
@@ -492,14 +598,6 @@ const DATA = {
         href: "#",
         desc: "参与后台管理与充电小程序开发，负责设备状态监控、订单管理、充电月卡等模块，配合团队优化用户充电流程并持续迭代系统性能。",
         tags: ["Vue2", "Uniapp", "后台管理"]
-      },
-      {
-        category: "业务平台与跨端应用",
-        name: "云游四海官网",
-        link: "2024.06 — 2025.07",
-        href: "#",
-        desc: "使用 HTML5、CSS3、原生 JavaScript 与 Bootstrap 4 完成官网页面开发，实现 PC 与移动端响应式布局、按终端动态加载图片资源，并通过图片懒加载优化首屏渲染时间。",
-        tags: ["HTML5", "CSS3", "Bootstrap", "Lazy Load"]
       },
       {
         category: "早期SaaS与设备对接经验",
@@ -528,17 +626,19 @@ const DATA = {
       { icon: "⌂", label: "Visual Communication Design Background", href: null },
       { icon: "￥", label: "Expected Salary 15-20K · Open Industry", href: null },
     ],
-    about: "Frontend engineer with 6+ years of experience, proficient in the Vue ecosystem and familiar with React, Uniapp, and WeChat Mini Program development. Experienced in frontend engineering, component design, internationalization, data visualization, map visualization, and cross-platform applications. Also has basic full-stack collaboration capabilities with Node.js, Java + Freemarker, databases, Linux operations, and Nginx deployment.",
+    about: "Frontend engineer with 6+ years of experience, focused on Vue2/3, React, TypeScript, uni-app, and Mini Program development. Experienced in smart parking systems, data analytics modules, internal developer tools, and official website lead-generation workflows. Able to deliver admin consoles, micro-frontend sub-apps, WeChat/Alipay Mini Programs, data visualization pages, and lightweight API services. Familiar with frontend engineering, componentization, i18n, multi-platform adaptation, Node/NestJS/Express services, Go/Gin API customization, and PM2/Nginx deployment. Recently uses Cursor, Codex, Figma to Code, and AI Agent workflows to improve requirement breakdown, code navigation, review, and regression validation.",
     experience: [
       {
         period: "Mar 2022 — Present",
         company: "Shenzhen Yunyou Sihai Technology Co., Ltd. · R&D Department",
         role: "Frontend Engineer",
         bullets: [
-          "Led extraction of reusable Vue2/3 admin templates and RBAC permission system, improving new project delivery efficiency by about 40%",
-          "Built enterprise component assets including paginated selectors, permission directives, tree selectors, and Canvas parking-space drawing components",
-          "Established frontend standards for code style, self-testing cases, and commit conventions to reduce maintenance cost",
-          "Developed and iterated core features for parking business systems, data dashboards, mini programs, and map visualization projects",
+          "Delivered core smart-parking frontend projects across owner-side Mini Programs, parking admin systems, statistics micro-frontends, official website lead workflows, data dashboards, and map visualization scenarios",
+          "Modernized legacy systems by extracting statistics modules from Java + FreeMarker admin pages into Vue3 + TypeScript sub-apps integrated through iframe micro-frontends",
+          "Built internal developer productivity tools including a Mini Program preview/review platform and a WeChat third-party platform management tool, covering branch sync, environment injection, build preview, review/release, token, and callback workflows",
+          "Maintained frontend engineering and reusable component capabilities including RBAC permissions, unified request handling, i18n, multi-platform builds, ECharts charts, Canvas parking-space drawing, paginated selectors, and tree selectors",
+          "Collaborated on lightweight backend and deployment work with Node.js / Express / NestJS / Prisma / Go / Gin for API services, task queues, SSE logs, PM2 deployment, and WeChat CloudBase adaptation",
+          "Introduced AI-assisted development workflows with Cursor, Codex, Figma to Code, and Agent documentation to improve requirement breakdown, impact analysis, page generation, code review, and regression validation",
         ]
       },
       {
@@ -553,11 +653,12 @@ const DATA = {
       },
     ],
     skills: [
-      { name: "Frontend", tags: ["Vue2/3", "Element UI/Plus", "React", "Uniapp", "WeChat Mini Program"] },
-      { name: "Engineering", tags: ["Webpack", "Vite", "Git", "Code Standards", "Components"] },
-      { name: "Visualization", tags: ["ECharts", "Canvas", "Amap", "Mass Markers", "Dashboards"] },
-      { name: "Collaboration", tags: ["Node.js", "Java + Freemarker", "Nginx", "vue-i18n", "Linux"] },
-      { name: "AI Tools", tags: ["Cursor", "Claude Code"] },
+      { name: "Frontend", tags: ["Vue2/3", "React", "TypeScript", "uni-app", "WeChat/Alipay Mini Program", "Ant Design"] },
+      { name: "Engineering", tags: ["Vite", "Webpack", "pnpm workspace", "iframe Micro-Frontend", "Components", "Vue I18n"] },
+      { name: "Visualization & Maps", tags: ["ECharts", "Canvas", "Amap", "Dashboards", "Statistics Reports"] },
+      { name: "Backend & Services", tags: ["Node.js", "Express", "NestJS", "Prisma", "Go/Gin", "MySQL/SQLite"] },
+      { name: "DevOps & Mini Program", tags: ["PM2", "Nginx", "Git CLI", "miniprogram-ci", "minidev", "WeChat CloudBase"] },
+      { name: "AI-Assisted Dev", tags: ["Cursor", "Codex", "Figma to Code", "AI Agent", "Trellis"] },
     ],
     education: [
       {
@@ -568,6 +669,23 @@ const DATA = {
       }
     ],
     projects: [
+      {
+        category: "Official Website & Full-Stack Projects",
+        name: "Shenzhen Yunyou Sihai Official Website Application Management System",
+        link: "Jul 2025 — Jul 09 2026",
+        href: "#",
+        featured: true,
+        desc: "Developed the official website application-experience business loop, including a Vite multi-page website, React admin console, and NestJS API service. The system supports online experience applications, admin review, status analytics, DingTalk notifications, and one-click deployment, serving website lead collection and operational follow-up. Also refactored the website styling architecture to TailwindCSS and used an AI-assisted Figma-to-code workflow to speed up page implementation.",
+        bullets: [
+          "Built the complete “website form submission - admin review - DingTalk notification” workflow, using NestJS + Prisma to model application records and admin accounts and provide RESTful APIs for submission, paginated search, status statistics, and review updates.",
+          "Developed the application management console with React 18 + Ant Design, including JWT authentication, private routes, token injection, 401 redirects, and password-change workflows.",
+          "Built an application record workspace with combined filters by status, phone number, name, company, and region, plus paginated tables, status tags, statistic cards, and review modals for operational processing.",
+          "Implemented website form validation, agreement checkbox validation, async submission, duplicate-submit prevention, and success feedback to keep user experience and backend data format consistent.",
+          "Integrated DingTalk robot notifications for new applications and review results, including Webhook Secret signing, error logging, and async failure isolation so notification failures do not block the main workflow.",
+          "Configured Vite multi-page builds for PC/WAP pages, TailwindCSS injection, static asset sync, image compression, and relative-path deployment; wrote deployment scripts and PM2 configuration for dependency installation, Prisma migration, frontend build, static asset copy, backend build, and service startup."
+        ],
+        tags: ["React 18", "Ant Design 5", "Vite", "NestJS", "Prisma", "SQLite", "JWT", "TailwindCSS", "PM2", "DingTalk Webhook", "Figma"]
+      },
       {
         category: "Core Complex Frontend Projects",
         name: "IIV Parking Inspection Platform",
@@ -594,6 +712,73 @@ const DATA = {
       },
       {
         category: "Business Platforms & Cross-Platform Apps",
+        name: "Smart Parking Owner Mini Program",
+        link: "Mar 2024 — Jul 09 2026",
+        href: "#",
+        featured: true,
+        desc: "Owner-side smart parking Mini Program built with uni-app + Vue2, supporting WeChat and Alipay from one codebase. The project covered parking search, scan-to-enter, on-street/off-street payment, overdue payment, parking cards, coupons, invoices, recharge, promoter workflows, and verification scenarios across 85+ pages, 4 subpackages, and multi-platform build/release workflows.",
+        bullets: [
+          "Delivered core owner-side business iterations across on-street payment, off-street scan payment, overdue payment, parking cards, coupons, and promoter recharge, supporting on-street, off-street, independent parking lot, and mechanical garage scenarios.",
+          "Built and optimized complex payment flows including scan-based order selection, in-lot payment, exit payment, zero-fee departure, merged historical debt payment, coupon deduction, secondary payment confirmation, and payment-success navigation.",
+          "Maintained pages.json routing and subpackage structure for main package, home, account, promoter, invoice, and car-life packages with preload strategies; maintained unified request handling for login state, token exceptions, business error codes, production signature encryption, file upload, and request replay.",
+          "Handled WeChat/Alipay compatibility by standardizing uni.* APIs, platform checks, payment channels, conditional compilation, and easycom component conventions; participated in OBS image migration and local image cache component work to reduce package size and improve loading experience.",
+          "Created AI Agent project context including AGENTS.md, business maps, page maps, API conventions, domain docs, version PRDs, and regression checklists; decomposed requirement analysis, development, review, and archive workflows into executable Agent task specs to improve impact analysis and code navigation efficiency."
+        ],
+        tags: ["uni-app", "Vue2", "JavaScript", "WeChat/Alipay Mini Program", "miniprogram-ci", "AI Agent"]
+      },
+      {
+        category: "Business Platforms & Cross-Platform Apps",
+        name: "IPS-SMC Parking Statistics Micro-Frontend",
+        link: "Jul 2025 — Jul 09 2026",
+        href: "#",
+        featured: true,
+        desc: "Built a parking business statistics sub-application with Vue 3 + TypeScript + Vite, extracting the statistics module from a legacy Java + FreeMarker parking admin system and integrating it back through a same-origin iframe. The project uses a pnpm monorepo for shared packages and covers business overview, revenue statistics, parking operations, and marketing analytics with KPI cards, trend charts, statistical tables, async export, i18n, theme adaptation, and mock/real API switching.",
+        bullets: [
+          "Developed core statistics pages for business KPIs, regional statistics, revenue statistics, and marketing analytics, covering metric cards, trend charts, table queries, sorting, pagination, and export flows.",
+          "Integrated unified KPI APIs and wrapped queryCards, queryTrend, queryTable, and exportStat methods, supporting mock and real API switching to improve frontend/backend integration and local development efficiency.",
+          "Promoted configuration-driven refactoring for regional statistics by extracting metric fields, i18n keys, units, widths, sort fields, and applicable scenarios into metric definition tables, reducing duplicated field maintenance across files.",
+          "Participated in the Core KPI homepage modularization pilot, splitting 6 statistics sections from a large page file into independent Block components with clearer boundaries between page state and presentation.",
+          "Maintained shared micro-frontend packages for request handling, language/theme Cookie synchronization, parent-child window communication, and host style tokens, keeping behavior consistent in both iframe and local development environments.",
+          "Built reusable ECharts capabilities for trend and pie charts, standardized business formatting for cents-to-yuan conversion, percentages, durations, and period-over-period metrics, and helped enforce TypeScript, i18n checks, and Trellis task workflows."
+        ],
+        tags: ["Vue3", "TypeScript", "Vite", "Vue I18n", "Ant Design Vue", "Tailwind CSS", "ECharts", "pnpm workspace", "iframe Micro-Frontend"]
+      },
+      {
+        category: "Internal Developer Productivity Tools",
+        name: "Intranet Mini Program Preview & Review Platform",
+        link: "Jul 2025 — Jul 09 2026",
+        href: "#",
+        featured: true,
+        desc: "Built an internal Mini Program preview service with Node.js + Express, turning a workflow that previously depended on local CLI commands, Git branch switching, HBuilderX CLI, and WeChat/Alipay preview tools into a browser-based platform. The service supports Git branch selection, site/environment switching, AppId and API endpoint configuration, uni-app compilation, WeChat/Alipay preview generation, and Alipay review submission.",
+        bullets: [
+          "Designed a one-click Web workflow covering Git branch sync, dependency installation, environment injection, uni-app compilation, WeChat/Alipay preview QR generation, and Alipay review submission, lowering the operational barrier for QA and product teammates.",
+          "Implemented real-time build logging with Express + SSE so the frontend can continuously receive build output, queue status, execution results, and preview QR codes during long-running build tasks.",
+          "Built a single-repository workspace management mechanism using git fetch + git reset --hard to ensure each task runs against the latest target branch, while disabling push operations to prevent accidental remote changes from the preview machine.",
+          "Designed an in-memory task queue that serializes build jobs, preventing concurrent HBuilderX / minidev runs from polluting build directories, QR assets, and log streams.",
+          "Implemented dynamic site and API endpoint injection by parsing appId, baseUrl, and webviewUrl from profile.js, supporting page backfill and runtime overrides for multi-city and multi-tenant Mini Program preview scenarios.",
+          "Supported WeChat and Alipay preview QR display by extracting Alipay QR links from CLI output and serving WeChat local PNG artifacts through static endpoints; deployed as a PM2 single-instance service to keep queue state and SSE connections stable."
+        ],
+        tags: ["Node.js", "Express", "SSE", "Git CLI", "child_process", "HBuilderX CLI", "minidev", "PM2"]
+      },
+      {
+        category: "Internal Developer Productivity Tools",
+        name: "WeChat Third-Party Platform Management Tool",
+        link: "Jul 2025 — Jul 09 2026",
+        href: "#",
+        featured: true,
+        desc: "Customized and extended a WeChat third-party platform management template with Go + Gin + GORM + MySQL + React + Vite, adding WeChat Open Platform delegated-development capabilities for third-party service providers, including authorized-account management, Mini Program delegated development, message callback forwarding, template library management, review/release workflows, token debugging, and system configuration. The system uses separate external and internal services, adapts to WeChat CloudBase deployment, and supports both plaintext JSON callbacks in CloudBase and encrypted XML callbacks for self-hosted services.",
+        bullets: [
+          "Extended the original template with backend APIs and React admin pages for authorization-link generation, authorized-account management, Mini Program templates, code submission, review, release, rollback, trial QR codes, privacy settings, server domains, and business-domain configuration.",
+          "Designed a dual HTTP service architecture with Gin: the external service provides the admin console, authorization pages, WeChat callbacks, and proxy capabilities, while the internal service exposes sensitive component_access_token, authorizer_access_token, and ticket queries.",
+          "Wrapped WeChat Open Platform API flows for component_access_token and authorizer_access_token acquisition, caching, invalidation refresh, and database persistence to improve API-call stability.",
+          "Implemented authorization-event and message-event callback processing, compatible with WeChat CloudBase plaintext JSON and self-hosted encrypted XML modes, covering ticket updates, authorization/cancel-authorization handling, callback persistence, and rule-based message forwarding.",
+          "Modeled authorized accounts, tokens, users, callback records, and forwarding rules with GORM to support paginated search, filtering, updates, and batch operations; added JWT authentication and middleware for login checks, request logging, and WeChat source verification.",
+          "Built React + TypeScript + Vite + TDesign React modules for the service-provider console, development debugging, message forwarder, proxy configuration, secret/password management, and batch code submission/review/release with success and failure details."
+        ],
+        tags: ["Go", "Gin", "GORM", "MySQL", "JWT", "React", "TypeScript", "Vite", "TDesign React", "WeChat Open Platform"]
+      },
+      {
+        category: "Business Platforms & Cross-Platform Apps",
         name: "IPS Parking Management Platform",
         link: "Mar 2024 — Jul 2025",
         href: "#",
@@ -607,14 +792,6 @@ const DATA = {
         href: "#",
         desc: "Developed admin features and charging Mini Program modules including device status monitoring, order management, and monthly charging card workflows, while iterating performance and user experience.",
         tags: ["Vue2", "Uniapp", "Admin System"]
-      },
-      {
-        category: "Business Platforms & Cross-Platform Apps",
-        name: "Yunyou Sihai Official Website",
-        link: "Jun 2024 — Jul 2025",
-        href: "#",
-        desc: "Developed official website pages with HTML5, CSS3, vanilla JavaScript, and Bootstrap 4. Implemented responsive layouts, device-based image loading, and lazy loading to improve first-screen rendering performance.",
-        tags: ["HTML5", "CSS3", "Bootstrap", "Lazy Load"]
       },
       {
         category: "Early SaaS & Device Integration Experience",
@@ -695,11 +872,16 @@ function render(lang) {
   `).join('');
 
   let lastProjectCategory = '';
-  const projects = d.projects.map(p => {
+  const projectList = [...d.projects].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
+  const projects = projectList.map(p => {
     const category = p.category && p.category !== lastProjectCategory
       ? `<div class="proj-category">${p.category}</div>`
       : '';
     lastProjectCategory = p.category || lastProjectCategory;
+
+    const bullets = p.bullets && p.bullets.length
+      ? `<ul class="proj-bullets">${p.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`
+      : '';
 
     return `
       ${category}
@@ -709,6 +891,7 @@ function render(lang) {
           <a class="proj-link" href="${p.href}" target="_blank" rel="noopener noreferrer">↗ ${p.link}</a>
         </div>
         <div class="proj-desc">${p.desc}</div>
+        ${bullets}
         <div class="skill-tags">${(p.tags||[]).map(t => `<span class="tag">${t}</span>`).join('')}</div>
       </div>
     `;
